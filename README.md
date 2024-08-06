@@ -70,6 +70,10 @@ npm run offline
 
 Esto iniciará serverless-offline, permitiéndote probar las funciones Lambda localmente.
 
+# Documentacion Swagger API
+
+https://andersonrugeles.github.io/event-log/
+
 # Despliegue en AWS
 Para desplegar la aplicación en AWS, usa Serverless Framework. Asegúrate de haber configurado tus credenciales de AWS CLI antes de proceder.
 
