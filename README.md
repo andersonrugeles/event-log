@@ -16,6 +16,7 @@ Serverless Framework
 
 # Estructura del Proyecto
 event-logs-app/
+
 ├── src/
 
 │   ├── controllers/

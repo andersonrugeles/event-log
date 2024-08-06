@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  title: Event Logs API
+  description: API para gestionar eventos
+  version: 1.0.0
+servers:
+  - url: https://3ntp79mq8a.execute-api.us-east-2.amazonaws.com/dev
+paths:
+  /events/register:
+    post:
+      summary: Registra un nuevo evento
+      requestBody:
+        description: Información del evento
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                eventType:
+                  type: string
+                  example: "Registro"
+                description:
+                  type: string
+                  example: "Registro de un usuario"
+        required: true
+      responses:
+        '200':
+          description: Evento registrado exitosamente
+        '400':
+          description: Solicitud inválida
+  /events:
+    get:
+      summary: Obtiene una lista de eventos
+      parameters:
+        - name: eventType
+          in: query
+          description: Tipo de evento para filtrar
+          schema:
+            type: string
+        - name: startDate
+          in: query
+          description: Fecha inicial de registro del evento
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          description: Fecha final de registro del evento
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de eventos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    eventId:
+                      type: string
+                      example: "d19f1a07-8b57-4c92-a5b0-c9d6e4f5d826"
+                    eventType:
+                      type: string
+                      example: "Registro"
+                    description:
+                      type: string
+                      example: "Registro de un usuario"
+                    eventDate:
+                      type: string
+                      example: "2024-08-06T22:39:45.060Z"
+        '400':
+          description: Solicitud inválida
