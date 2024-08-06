@@ -1,0 +1,25 @@
+service: event-logs-app
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-2
+
+plugins:
+  - serverless-offline
+
+functions:
+  registerEvent:
+    handler: dist/lambdas/register-events.handler
+    events:
+      - http:
+          path: events/register
+          method: post
+  getEvents:
+    handler: dist/lambdas/get-events.handler
+    events:
+      - http:
+          path: events
+          method: get
+
+
