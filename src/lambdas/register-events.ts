@@ -27,7 +27,7 @@ exports.handler = async (event: any): Promise<any> => {
     
     try {
         await eventController.registerEvent(req as any, res as any);
-        console.log('Response before sending',res)
+        console.log('Response object before sending',res)
         return res;
     } catch (error) {
         console.error('Error in handler:', error);
