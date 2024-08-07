@@ -11,12 +11,14 @@ plugins:
 functions:
   registerEvent:
     handler: dist/lambdas/register-events.handler
+    timeout: 30
     events:
       - http:
           path: events/register
           method: post
   getEvents:
     handler: dist/lambdas/get-events.handler
+    timeout: 30
     events:
       - http:
           path: events

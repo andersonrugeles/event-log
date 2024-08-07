@@ -168,13 +168,13 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/event-logs-app/dev/1722985095454-2024-08-06T22:58:15.454Z/event-logs-app.zip"
+          "S3Key": "serverless/event-logs-app/dev/1722989594949-2024-08-07T00:13:14.949Z/event-logs-app.zip"
         },
         "Handler": "dist/lambdas/register-events.handler",
         "Runtime": "nodejs20.x",
         "FunctionName": "event-logs-app-dev-registerEvent",
         "MemorySize": 1024,
-        "Timeout": 6,
+        "Timeout": 30,
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -193,13 +193,13 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/event-logs-app/dev/1722985095454-2024-08-06T22:58:15.454Z/event-logs-app.zip"
+          "S3Key": "serverless/event-logs-app/dev/1722989594949-2024-08-07T00:13:14.949Z/event-logs-app.zip"
         },
         "Handler": "dist/lambdas/get-events.handler",
         "Runtime": "nodejs20.x",
         "FunctionName": "event-logs-app-dev-getEvents",
         "MemorySize": 1024,
-        "Timeout": 6,
+        "Timeout": 30,
         "Role": {
           "Fn::GetAtt": [
             "IamRoleLambdaExecution",
@@ -211,24 +211,24 @@
         "GetEventsLogGroup"
       ]
     },
-    "RegisterEventLambdaVersion8VrQTaxIGIBnGw07lzLtQzVBsFVNgDkcWd4KaRlU": {
+    "RegisterEventLambdaVersion40TT0gprwycBv8Mx7BotxmqV6ktzGAlbXLvu2elRw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterEventLambdaFunction"
         },
-        "CodeSha256": "3fsJEHPpbqRDPXDFN9IeW/xkcw8G/yxUZLH5+ta8/oA="
+        "CodeSha256": "KfMzGE2/mZHQ7Vyk6dp7+nhu0N/nYRSfOWVRpWgAQQs="
       }
     },
-    "GetEventsLambdaVersionSNisp1yFvICT0nJXbIUB90dYc54YsLWD2bnYinXwtfc": {
+    "GetEventsLambdaVersion6tcRPiuHaXCuui5PDknj7hnrFcDE5LewFROJQzOBCzk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetEventsLambdaFunction"
         },
-        "CodeSha256": "3fsJEHPpbqRDPXDFN9IeW/xkcw8G/yxUZLH5+ta8/oA="
+        "CodeSha256": "KfMzGE2/mZHQ7Vyk6dp7+nhu0N/nYRSfOWVRpWgAQQs="
       }
     },
     "ApiGatewayRestApi": {
@@ -362,7 +362,7 @@
         "GetEventsLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1722985086468": {
+    "ApiGatewayDeployment1722989585270": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -462,7 +462,7 @@
     "RegisterEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterEventLambdaVersion8VrQTaxIGIBnGw07lzLtQzVBsFVNgDkcWd4KaRlU"
+        "Ref": "RegisterEventLambdaVersion40TT0gprwycBv8Mx7BotxmqV6ktzGAlbXLvu2elRw"
       },
       "Export": {
         "Name": "sls-event-logs-app-dev-RegisterEventLambdaFunctionQualifiedArn"
@@ -471,7 +471,7 @@
     "GetEventsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetEventsLambdaVersionSNisp1yFvICT0nJXbIUB90dYc54YsLWD2bnYinXwtfc"
+        "Ref": "GetEventsLambdaVersion6tcRPiuHaXCuui5PDknj7hnrFcDE5LewFROJQzOBCzk"
       },
       "Export": {
         "Name": "sls-event-logs-app-dev-GetEventsLambdaFunctionQualifiedArn"

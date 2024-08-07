@@ -17,6 +17,12 @@ class EventController {
       }
       const { description, eventType } = req.body;
 
+      if (!description || !eventType) {
+        console.error("No body provided in request");
+        res.status(400).send({ message: "Bad Request: description and eventType is required" });
+        return;
+      }
+
       const newEvent = {
           eventId: uuidv4(),
           description,
@@ -35,24 +41,20 @@ class EventController {
   async getEvents(req: Request, res: Response): Promise<void> {
     try {
 
-      const { eventType, startDate, endDate } = req.query;
-
       const params: DocumentClient.ScanInput = {
         TableName: process.env.EVENT_LOGS_TABLE || "EventLogs",
       };
 
       console.log('request sending::',req)
-      if (
-        eventType ||
-        startDate ||
-        endDate
-      ) {
+
+      if (req.query) {
+        const { eventType, startDate, endDate } = req.query;
 
         const filterExpressions: string[] = [];
         const expressionAttributeValues: DocumentClient.ExpressionAttributeValueMap =
           {};
 
-        console.log('req.query',req.query)
+        console.log("req.query", req.query);
         if (eventType) {
           filterExpressions.push("eventType = :eventType");
           expressionAttributeValues[":eventType"] = eventType;
