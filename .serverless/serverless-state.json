@@ -180,7 +180,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/event-logs-app/dev/1722989594949-2024-08-07T00:13:14.949Z/event-logs-app.zip"
+                "S3Key": "serverless/event-logs-app/dev/1723125138865-2024-08-08T13:52:18.865Z/event-logs-app.zip"
               },
               "Handler": "dist/lambdas/register-events.handler",
               "Runtime": "nodejs20.x",
@@ -205,7 +205,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/event-logs-app/dev/1722989594949-2024-08-07T00:13:14.949Z/event-logs-app.zip"
+                "S3Key": "serverless/event-logs-app/dev/1723125138865-2024-08-08T13:52:18.865Z/event-logs-app.zip"
               },
               "Handler": "dist/lambdas/get-events.handler",
               "Runtime": "nodejs20.x",
@@ -223,24 +223,24 @@
               "GetEventsLogGroup"
             ]
           },
-          "RegisterEventLambdaVersion40TT0gprwycBv8Mx7BotxmqV6ktzGAlbXLvu2elRw": {
+          "RegisterEventLambdaVersionxlMznhXUzmKNvRECCw2uC4EbijlHcJELb82D6zGCynU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RegisterEventLambdaFunction"
               },
-              "CodeSha256": "KfMzGE2/mZHQ7Vyk6dp7+nhu0N/nYRSfOWVRpWgAQQs="
+              "CodeSha256": "ostpOeP1Li58+bDRpZGr+LwoAL4HDa8lre3fO+HJyl4="
             }
           },
-          "GetEventsLambdaVersion6tcRPiuHaXCuui5PDknj7hnrFcDE5LewFROJQzOBCzk": {
+          "GetEventsLambdaVersion86N8s322xvMbENwbj98sBc6bPzvDXNxQhRUsGY2qY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetEventsLambdaFunction"
               },
-              "CodeSha256": "KfMzGE2/mZHQ7Vyk6dp7+nhu0N/nYRSfOWVRpWgAQQs="
+              "CodeSha256": "ostpOeP1Li58+bDRpZGr+LwoAL4HDa8lre3fO+HJyl4="
             }
           },
           "ApiGatewayRestApi": {
@@ -374,7 +374,7 @@
               "GetEventsLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1722989585270": {
+          "ApiGatewayDeployment1723125125457": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -474,7 +474,7 @@
           "RegisterEventLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RegisterEventLambdaVersion40TT0gprwycBv8Mx7BotxmqV6ktzGAlbXLvu2elRw"
+              "Ref": "RegisterEventLambdaVersionxlMznhXUzmKNvRECCw2uC4EbijlHcJELb82D6zGCynU"
             },
             "Export": {
               "Name": "sls-event-logs-app-dev-RegisterEventLambdaFunctionQualifiedArn"
@@ -483,7 +483,7 @@
           "GetEventsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetEventsLambdaVersion6tcRPiuHaXCuui5PDknj7hnrFcDE5LewFROJQzOBCzk"
+              "Ref": "GetEventsLambdaVersion86N8s322xvMbENwbj98sBc6bPzvDXNxQhRUsGY2qY"
             },
             "Export": {
               "Name": "sls-event-logs-app-dev-GetEventsLambdaFunctionQualifiedArn"
@@ -623,7 +623,7 @@
         "memory": 1024,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "RegisterEventLambdaVersion40TT0gprwycBv8Mx7BotxmqV6ktzGAlbXLvu2elRw"
+        "versionLogicalId": "RegisterEventLambdaVersionxlMznhXUzmKNvRECCw2uC4EbijlHcJELb82D6zGCynU"
       },
       "getEvents": {
         "handler": "dist/lambdas/get-events.handler",
@@ -642,7 +642,7 @@
         "memory": 1024,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "GetEventsLambdaVersion6tcRPiuHaXCuui5PDknj7hnrFcDE5LewFROJQzOBCzk"
+        "versionLogicalId": "GetEventsLambdaVersion86N8s322xvMbENwbj98sBc6bPzvDXNxQhRUsGY2qY"
       }
     },
     "configValidationMode": "warn",
@@ -665,7 +665,7 @@
     "artifact": "C:\\propios\\event-log\\.serverless\\event-logs-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/event-logs-app/dev/1722989594949-2024-08-07T00:13:14.949Z",
+    "artifactDirectoryName": "serverless/event-logs-app/dev/1723125138865-2024-08-08T13:52:18.865Z",
     "artifact": "event-logs-app.zip"
   }
 }

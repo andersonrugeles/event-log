@@ -42,11 +42,13 @@ paths:
           description: Fecha inicial de registro del evento
           schema:
             type: string
+            example: "2024-08-06"
         - name: endDate
           in: query
           description: Fecha final de registro del evento
           schema:
             type: string
+            example: "2024-08-07"
       responses:
         '200':
           description: Lista de eventos

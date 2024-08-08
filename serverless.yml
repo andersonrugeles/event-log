@@ -23,5 +23,3 @@ functions:
       - http:
           path: events
           method: get
-
-

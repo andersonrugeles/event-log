@@ -3,6 +3,7 @@ import eventService from "../services/eventService";
 import AWS from "aws-sdk";
 import { DocumentClient } from "aws-sdk/clients/dynamodb";
 import { v4 as uuidv4 } from 'uuid';
+import isValidDate from "../utils/utils";
 
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
@@ -17,7 +18,7 @@ class EventController {
       }
       const { description, eventType } = req.body;
 
-      if (!description || !eventType) {
+      if (!description?.trim() || !eventType?.trim()) {
         console.error("No body provided in request");
         res.status(400).send({ message: "Bad Request: description and eventType is required" });
         return;
@@ -61,17 +62,28 @@ class EventController {
         }
 
         if (startDate) {
+          if(!isValidDate(startDate.toString())){
+            res.status(400).send({ message: "Bad Request: startDate format invalid" });
+            return;
+          }
           filterExpressions.push("eventDate >= :startDate");
           expressionAttributeValues[":startDate"] = startDate;
         }
 
         if (endDate) {
+          if(!isValidDate(endDate.toString())){
+            res.status(400).send({ message: "Bad Request: endDate format invalid" });
+            return;
+          }
           filterExpressions.push("eventDate <= :endDate");
           expressionAttributeValues[":endDate"] = endDate;
         }
 
-        params.FilterExpression = filterExpressions.join(" AND ");
-        params.ExpressionAttributeValues = expressionAttributeValues;
+        if(filterExpressions.length > 0){
+          params.FilterExpression = filterExpressions.join(" AND ");
+          params.ExpressionAttributeValues = expressionAttributeValues;
+        }
+        console.log('Params::',params)
       }
 
       const data = await dynamoDb.scan(params).promise();
