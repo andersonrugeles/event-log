@@ -41,7 +41,7 @@ class EventController {
 
   async getEvents(req: Request, res: Response): Promise<void> {
     try {
-
+      let dateFilter = ["eventDate >= :startDate","eventDate <= :endDate"]
       const params: DocumentClient.ScanInput = {
         TableName: process.env.EVENT_LOGS_TABLE || "EventLogs",
       };
@@ -61,21 +61,15 @@ class EventController {
           expressionAttributeValues[":eventType"] = eventType;
         }
 
-        if (startDate) {
-          if(!isValidDate(startDate.toString())){
-            res.status(400).send({ message: "Bad Request: startDate format invalid" });
+        if (startDate && endDate) {
+          if(!isValidDate(startDate.toString()) || !isValidDate(endDate.toString())){
+            res.status(400).send({ message: "Bad Request: date format invalid" });
             return;
           }
-          filterExpressions.push("eventDate >= :startDate");
+          dateFilter.forEach((filter)=>{
+            filterExpressions.push(filter);
+          })
           expressionAttributeValues[":startDate"] = startDate;
-        }
-
-        if (endDate) {
-          if(!isValidDate(endDate.toString())){
-            res.status(400).send({ message: "Bad Request: endDate format invalid" });
-            return;
-          }
-          filterExpressions.push("eventDate <= :endDate");
           expressionAttributeValues[":endDate"] = endDate;
         }
 
